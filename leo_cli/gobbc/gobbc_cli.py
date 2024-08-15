@@ -2,6 +2,7 @@ import click
 
 from leo_cli.configure import profile, set_profile
 from leo_cli.gobbc.gobbc import Gobbc
+from leo_cli.configure import AWS_CONFIG
 
 DEFAULT_ENV = 'live'
 ENVS = ['int', 'test', 'stage', 'live']
@@ -15,7 +16,7 @@ def gobbc():
 
 @gobbc.command(help='Refresh AWS credentials')
 @click.option('--env', prompt=True, default=profile.get('env', 'live'), type=click.Choice(ENVS), help='Environment')
-@click.option('--project', prompt=True, default=profile.get('project', 'comments'), type=click.Choice(PROJECTS), help='Environment')
+@click.option('--project', prompt=True, default=profile.get('project', 'comments'), type=click.Choice(list(AWS_CONFIG.keys())), help='Environment')
 def refresh(env, project):
     try:
 

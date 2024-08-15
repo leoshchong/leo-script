@@ -1,25 +1,15 @@
-VOSTOK_CONFIG = {
-    "scv": {
-        "aws": {
-            "int": "977228593394",
-            "test": "977228593394",
-            "stage": "977228593394",
-            "live": "347875564198",
-            "dns": "511603603783"
-        }
-    }
-}
+from leo_cli.leo import cert_config_file
+from leo_cli.configure import AWS_CONFIG
 
 
 class Vostok:
 
     def __init__(self, env, project, cert=None, key=None, region="eu-west-1"):
-        self.project = VOSTOK_CONFIG[project]
-        self.aws_account = self.project["aws"][env]
+        self.project = AWS_CONFIG[project]
+        self.aws_account = self.project[env]
         import configparser
-        from pathlib import Path
         credentials = configparser.ConfigParser()
-        credentials.read(Path.home().joinpath(".leo-cli"))
+        credentials.read(cert_config_file())
         self.cert = credentials.get("Authentication", "Cert")
         self.key = credentials.get("Authentication", "Key")
         self.region = region

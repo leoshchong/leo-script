@@ -1,25 +1,11 @@
-GOBBC_CONFIG = {
-    "scv": {
-        "aws": {
-            "int": "977228593394",
-            "test": "977228593394",
-            "stage": "977228593394",
-            "live": "347875564198"
-        }
-    },
-    "analysis": {
-        "aws": {
-            "live": "160230170054"
-        }
-    }
-}
+from leo_cli.configure import AWS_CONFIG
 
 
 class Gobbc:
 
     def __init__(self, env, project, cert=None, key=None, region="eu-west-1"):
-        self.project = GOBBC_CONFIG[project]
-        self.aws_account = self.project["aws"][env]
+        self.project = AWS_CONFIG[project]
+        self.aws_account = self.project[env]
         self.region = region
         self.access_key_id = None
         self.secret_access_key = None

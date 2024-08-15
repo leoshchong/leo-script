@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from leo_cli.configure import cert_config_file
 import click
 from leo_cli.vostok.vostok_cli import vostok
 from leo_cli.gobbc.gobbc_cli import gobbc
@@ -11,7 +11,6 @@ APP_VERSION = '0.0.1'
 @click.option('--debug/--no-debug', default=False)
 @click.pass_context
 def cli(ctx, debug):
-    click.echo('Hello World!')
     pass
 
 
@@ -31,10 +30,6 @@ def setup(key, cert):
     with open(Path.home().joinpath(".aws").joinpath("config"), 'w') as fconfig:
         fconfig.write("[default]\n")
         fconfig.write(f"region = eu-west-1\n")
-
-
-def cert_config_file():
-    return Path.home().joinpath(".leo-cli")
 
 
 cli.add_command(vostok)
