@@ -9,7 +9,6 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
         in pkg_resources.parse_requirements(requirements_txt)
     ]
 
-
 setup(
     name='leo-cli',
     version='0.0.1',
@@ -19,7 +18,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'leo=leo:leo',
+            'leo=leo:cli',
         ]
     },
     install_requires=install_requires,

@@ -10,17 +10,17 @@ APP_VERSION = '0.0.1'
 @click.group()
 @click.option('--debug/--no-debug', default=False)
 @click.pass_context
-def leo(ctx, debug):
+def cli(ctx, debug):
     click.echo('Hello World!')
     pass
 
 
-@leo.command(help='Version details')
+@cli.command(help='Version details')
 def version():
     click.echo(APP_VERSION)
 
 
-@leo.command(help='Initial Setup')
+@cli.command(help='Initial Setup')
 @click.option('--key', prompt=True, help='Dev Private Key Path')
 @click.option('--cert', prompt=True, help='Dev Cert Path')
 def setup(key, cert):
@@ -37,8 +37,8 @@ def cert_config_file():
     return Path.home().joinpath(".leo-cli")
 
 
-leo.add_command(vostok)
-leo.add_command(gobbc)
+cli.add_command(vostok)
+cli.add_command(gobbc)
 
 if __name__ == '__main__':
-    leo()
+    cli()
