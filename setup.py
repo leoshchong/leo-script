@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
-from pip._internal.req import parse_requirements
+import pathlib
+import pkg_resources
 
-install_reqs = parse_requirements("requirements.txt", session=False)
-reqs = [str(ir.req) for ir in install_reqs]
+with pathlib.Path('requirements.txt').open() as requirements_txt:
+    install_requires = [
+        str(requirement)
+        for requirement
+        in pkg_resources.parse_requirements(requirements_txt)
+    ]
+
 
 setup(
     name='leo-cli',
@@ -16,5 +22,5 @@ setup(
             'leo=leo:leo',
         ]
     },
-    install_requires=reqs
+    install_requires=install_requires,
 )
