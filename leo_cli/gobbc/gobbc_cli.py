@@ -5,7 +5,7 @@ from leo_cli.gobbc.gobbc import Gobbc
 
 DEFAULT_ENV = 'live'
 ENVS = ['int', 'test', 'stage', 'live']
-PROJECTS = ['comments', 'moderation', 'analysis']
+PROJECTS = ['scv', 'analysis']
 
 
 @click.group(help='Gobbc utilities')

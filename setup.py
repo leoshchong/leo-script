@@ -10,7 +10,7 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
     ]
 
 setup(
-    name='leo-cli',
+    name='leo',
     version='0.0.1',
     author='Leo Chong',
     author_email='leo.h.chong@bbc.co.uk',

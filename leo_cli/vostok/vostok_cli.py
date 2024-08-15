@@ -4,7 +4,7 @@ from leo_cli.configure import profile, set_profile
 
 DEFAULT_ENV = 'live'
 ENVS = ['int', 'test', 'stage', 'live', 'dns']
-PROJECTS = ['comments', 'moderation']
+PROJECTS = ['scv']
 
 
 @click.group(help='Vostok utilities')
