@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
+from pip._internal.req import parse_requirements
 from leo import APP_VERSION
 
 install_reqs = parse_requirements("requirements.txt")
