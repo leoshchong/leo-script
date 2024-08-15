@@ -10,7 +10,7 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
     ]
 
 setup(
-    name='leo',
+    name='leo_cli',
     version='0.0.1',
     author='Leo Chong',
     author_email='leo.h.chong@bbc.co.uk',
@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'leo=leo:cli',
+            'leo=leo_cli.leo:cli',
         ]
     },
     install_requires=install_requires,
