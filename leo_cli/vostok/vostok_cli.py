@@ -13,7 +13,7 @@ def vostok():
 
 @vostok.command(help='Refresh AWS credentials')
 @click.option('--env', prompt=True, default=profile.get('env', 'live'), type=click.Choice(ENVS), help='Environment')
-@click.option('--project', prompt=True, default=profile.get('project', 'comments'), type=click.Choice(list(AWS_CONFIG.keys())), help='Environment')
+@click.option('--project', prompt=True, default=profile.get('project', 'scv'), type=click.Choice(list(AWS_CONFIG.keys())), help='Environment')
 def refresh(env, project):
     try:
         from leo_cli.vostok.vostok import Vostok
