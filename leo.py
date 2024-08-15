@@ -1,8 +1,8 @@
 from pathlib import Path
 
 import click
-from vostok.vostok_cli import vostok
-from gobbc.gobbc_cli import gobbc
+from leo_cli.vostok.vostok_cli import vostok
+from leo_cli.gobbc.gobbc_cli import gobbc
 
 APP_VERSION = '0.0.1'
 
@@ -11,6 +11,7 @@ APP_VERSION = '0.0.1'
 @click.option('--debug/--no-debug', default=False)
 @click.pass_context
 def leo(ctx, debug):
+    click.echo('Hello World!')
     pass
 
 

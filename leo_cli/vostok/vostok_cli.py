@@ -1,6 +1,6 @@
 import click
 
-from configure import profile
+from leo_cli.configure import profile, set_profile
 
 DEFAULT_ENV = 'live'
 ENVS = ['int', 'test', 'stage', 'live', 'dns']
@@ -17,13 +17,12 @@ def vostok():
 @click.option('--project', prompt=True, default=profile.get('project', 'comments'), type=click.Choice(PROJECTS), help='Environment')
 def refresh(env, project):
     try:
-        from vostok.vostok import Vostok
+        from leo_cli.vostok.vostok import Vostok
         vostok_api = Vostok(env=env, project=project)
         vostok_api.refresh_wormhole_credentials()
         click.echo(f"Successfully refreshed {env} {project} AWS credentials.")
     except Exception as ex:
         click.echo(f"Failed to refresh AWS credentials. {str(ex)}")
     finally:
-        from configure import set_profile
         set_profile(name='env', value=env)
         set_profile(name='project', value=project)
