@@ -1,4 +1,25 @@
 import click
+from pathlib import Path
+
+AWS_CONFIG = {
+    "scv": {
+        "int": "977228593394",
+        "test": "977228593394",
+        "stage": "977228593394",
+        "live": "347875564198",
+        "dns": "511603603783"
+    },
+    "uas": {
+        "int": "153944352978",
+        "test": "153944352978",
+        "stage": "153944352978",
+        "live": "267802866328",
+        "dns": "511603603783"
+    },
+    "analysis": {
+        "live": "160230170054"
+    }
+}
 
 
 def app_dir():
@@ -43,5 +64,8 @@ def set_profile(name, value):
         write_profile(app_dir=app_dir(), profile=profile)
 
 
-profile = read_profile(app_dir=app_dir())
+def cert_config_file():
+    return Path.home().joinpath(".leo-cli")
 
+
+profile = read_profile(app_dir=app_dir())

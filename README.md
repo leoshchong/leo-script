@@ -9,6 +9,7 @@ The *leo* CLI is a quality of life for some common use case at work
 
 # Installation
 
+        pip install -U wheel
         pip3 install "git+ssh://git@github.com/leoshchong/leo-script.git"
 
 * Check out the repo and pick a released version (list tags and pick the latest to avoid checking unfinished changes from master)

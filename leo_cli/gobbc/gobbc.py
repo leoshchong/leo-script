@@ -1,25 +1,11 @@
-GOBBC_CONFIG = {
-    "comments": {
-        "aws": {
-            "int": "697069457749",
-            "test": "697069457749",
-            "stage": "697069457749",
-            "live": "113537507212"
-        }
-    },
-    "analysis": {
-        "aws": {
-            "live": "160230170054"
-        }
-    }
-}
+from leo_cli.configure import AWS_CONFIG
 
 
 class Gobbc:
 
     def __init__(self, env, project, cert=None, key=None, region="eu-west-1"):
-        self.project = GOBBC_CONFIG[project]
-        self.aws_account = self.project["aws"][env]
+        self.project = AWS_CONFIG[project]
+        self.aws_account = self.project[env]
         self.region = region
         self.access_key_id = None
         self.secret_access_key = None
