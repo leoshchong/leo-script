@@ -9,16 +9,16 @@ The *leo* CLI is a quality of life for some common use case at work
 
 # Installation
 
-        pip3 install -U wheel
-        pip3 install "git+ssh://git@github.com/leoshchong/leo-script.git"
+    pip3 install -U wheel
+    pip3 install "git+ssh://git@github.com/leoshchong/leo-script.git"
 
 # Development
 
 * Make "leo-script" available on the command line.
 
-        pip install -e <full_path_to_src_main>
+      pip install -e <path_to_setup>
 
-  An example the <full_path_to_src_main> would be: `/Users/myUser/workspace/leo-script/src/main`
+  An example the <path_to_setup> would be: `/Users/myUser/workspace/leo-script/` or just `.`
 
 # One time configuration
 
