@@ -47,7 +47,7 @@ class Cosmos:
 
     def check_logged_in(self, service, environment, instance_id):
         response = self.cosmos_get_request_body(f"/services/{service}/{environment}/logins")
-
+        # print(response)
         for login in response["logins"]:
             if (
                 login["instance_id"] == instance_id
@@ -74,15 +74,19 @@ class Cosmos:
         click.echo("Found instance " + instance_id)
         if self.check_logged_in(service, environment, instance_id):
             click.echo("Found existing login.")
-        return running_instances[instance]["private_ip_address"]
+            return running_instances[instance]["private_ip_address"]
 
         data = {"instance_id": instance_id}
+        click.echo("Existing login not found, getting login from cosmos..")
         response = self.cosmos_post_request(f"/services/{service}/{environment}/logins", data)
         if response.status_code != 201:
             click.echo(response.text)
             raise Exception("Get Login from cosmos unsuccessful")
 
-        while not self.check_logged_in(service, environment, instance_id):
+        time.sleep(5)
+        for i in range(10):
+            if self.check_logged_in(service, environment, instance_id):
+                break
             time.sleep(1)
 
         running_instances = self.get_instances(service, environment)
