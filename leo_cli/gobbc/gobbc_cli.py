@@ -4,9 +4,8 @@ from leo_cli.configure import profile, set_profile
 from leo_cli.gobbc.gobbc import Gobbc
 from leo_cli.configure import AWS_CONFIG
 
-DEFAULT_ENV = 'live'
+DEFAULT_ENV = 'int'
 ENVS = ['int', 'test', 'stage', 'live']
-PROJECTS = ['scv', 'analysis']
 
 
 @click.group(help='Gobbc utilities')

@@ -21,6 +21,8 @@ AWS_CONFIG = {
     }
 }
 
+COSMOS_SERVICE = ["federated-id", "scv-utility-airflow", "sar-server-blue", "activity-writer"]
+
 
 def app_dir():
     return click.get_app_dir(app_name='leo-cli')
