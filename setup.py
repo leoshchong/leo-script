@@ -11,7 +11,7 @@ with pathlib.Path('requirements.txt').open() as requirements_txt:
 
 setup(
     name='leo_cli',
-    version='0.0.2',
+    version='0.0.3',
     author='Leo Chong',
     author_email='leo.h.chong@bbc.co.uk',
     description='command line interface',

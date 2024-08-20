@@ -18,7 +18,6 @@ def gobbc():
 @click.option('--project', prompt=True, default=profile.get('project', 'scv'), type=click.Choice(list(AWS_CONFIG.keys())), help='Environment')
 def refresh(env, project):
     try:
-
         gobbc_api = Gobbc(env=env, project=project)
         gobbc_api.refresh_wormhole_credentials()
         click.echo(f"Successfully refreshed {env} {project} AWS credentials.")

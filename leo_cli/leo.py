@@ -5,7 +5,7 @@ from leo_cli.vostok.vostok_cli import vostok
 from leo_cli.gobbc.gobbc_cli import gobbc
 from leo_cli.cosmos.cosmos_cli import cosmos
 
-APP_VERSION = '0.0.2'
+APP_VERSION = '0.0.3'
 
 
 @click.group()
@@ -21,10 +21,13 @@ def version():
 
 
 def read_setup(key):
-    import configparser
-    config = configparser.ConfigParser()
-    config.read(cert_config_file())
-    return config.get("Authentication", key)
+    try:
+        import configparser
+        config = configparser.ConfigParser()
+        config.read(cert_config_file())
+        return config.get("Authentication", key)
+    except:
+        return ""
 
 
 @cli.command(help='Initial Setup')

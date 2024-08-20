@@ -47,7 +47,6 @@ class Cosmos:
 
     def check_logged_in(self, service, environment, instance_id):
         response = self.cosmos_get_request_body(f"/services/{service}/{environment}/logins")
-        # print(response)
         for login in response["logins"]:
             if (
                 login["instance_id"] == instance_id
