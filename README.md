@@ -19,8 +19,12 @@ Run the setup command and input your develop cert and key as prompted:
 
     leo setup
 
-The command will setup .leo-cli and .aws/config file
+The command will setup .leo-cli and .aws/config file. Example:
 
+    Key []: /Users/user/cert/mykey.key
+    Cert []: /Users/user/cert/mycert.crt
+    Email []: my_email@test.co.uk
+    
 # Development
 
 * Make "leo-script" available on the command line.
