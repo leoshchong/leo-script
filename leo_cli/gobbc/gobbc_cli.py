@@ -16,9 +16,10 @@ def gobbc():
 @gobbc.command(help='Refresh AWS credentials')
 @click.option('--env', prompt=True, default=profile.get('env', 'live'), type=click.Choice(ENVS), help='Environment')
 @click.option('--project', prompt=True, default=profile.get('project', 'scv'), type=click.Choice(list(AWS_CONFIG.keys())), help='Environment')
-def refresh(env, project):
+@click.option('--duration', prompt=True, default=profile.get('duration', '1h'), help='Environment')
+def refresh(env, project, duration):
     try:
-        gobbc_api = Gobbc(env=env, project=project)
+        gobbc_api = Gobbc(env=env, project=project, duration=duration)
         gobbc_api.refresh_wormhole_credentials()
         click.echo(f"Successfully refreshed {env} {project} AWS credentials.")
     except Exception as ex:
@@ -26,3 +27,4 @@ def refresh(env, project):
     finally:
         set_profile(name='env', value=env)
         set_profile(name='project', value=project)
+        set_profile(name='duration', value=duration)
