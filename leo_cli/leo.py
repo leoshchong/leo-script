@@ -5,7 +5,7 @@ from leo_cli.vostok.vostok_cli import vostok
 from leo_cli.gobbc.gobbc_cli import gobbc
 from leo_cli.cosmos.cosmos_cli import cosmos
 
-APP_VERSION = '0.0.4'
+APP_VERSION = '0.0.5'
 
 
 @click.group()
