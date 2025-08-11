@@ -1,5 +1,5 @@
 from leo_cli.configure import AWS_CONFIG
-
+import leo_cli.utilities.aws_utils as aws_utils
 
 class Gobbc:
 
@@ -22,7 +22,7 @@ class Gobbc:
             key, value = line.split("=", 1)
             credentials[key] = value
 
-        self.write_aws_credentials(
+        aws_utils.write_aws_credentials(
             access_key_id=credentials["AWS_ACCESS_KEY_ID"],
             secret_access_key=credentials["AWS_SECRET_ACCESS_KEY"],
             session_token=credentials["AWS_SESSION_TOKEN"],
@@ -32,14 +32,3 @@ class Gobbc:
         self.secret_access_key = credentials["AWS_SECRET_ACCESS_KEY"]
         self.session_token = credentials["AWS_SESSION_TOKEN"]
 
-    def write_aws_credentials(self, access_key_id, secret_access_key, session_token, region):
-        import os
-        aws_dir = f"{os.path.expanduser('~')}/.aws"
-        if not os.path.exists(aws_dir):
-            os.makedirs(aws_dir)
-        credentials_file = f"{aws_dir}/credentials"
-        with open(credentials_file, "w") as fp:
-            fp.write(
-                f"[default]\nregion = {region}\naws_access_key_id = {access_key_id}\naws_secret_access_key = {secret_access_key}"
-                f"\naws_session_token = {session_token}\n".strip()
-            )
