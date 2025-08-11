@@ -25,7 +25,13 @@ AWS_CONFIG = {
     },
     "analysis": {
         "live": "160230170054"
-    }
+    },
+    "ssdp-product": {
+        "int": "590183789092",
+        "test": "767398037570",
+        "stage": "339712878254",
+        "live": "460144353594"
+    },
 }
 
 COSMOS_SERVICE = ["federated-id", "scv-utility-airflow", "sar-server-blue", "activity-writer"]

@@ -4,8 +4,9 @@ import click
 from leo_cli.vostok.vostok_cli import vostok
 from leo_cli.gobbc.gobbc_cli import gobbc
 from leo_cli.cosmos.cosmos_cli import cosmos
+from leo_cli.iam.iam_cli import iam
 
-APP_VERSION = '0.0.5'
+APP_VERSION = '0.0.6'
 
 
 @click.group()
@@ -48,6 +49,7 @@ def setup(key, cert, email):
 cli.add_command(vostok)
 cli.add_command(gobbc)
 cli.add_command(cosmos)
+cli.add_command(iam)
 
 if __name__ == '__main__':
     cli()
