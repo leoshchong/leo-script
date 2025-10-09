@@ -32,6 +32,30 @@ AWS_CONFIG = {
         "stage": "339712878254",
         "live": "460144353594"
     },
+    "datamesh": {
+        "int": "101390726573",
+        "test": "288167858691",
+        "stage": "680786346791",
+        "live": "148239366923"
+    },
+    "edp-gov": {
+        "int": "223671367884",
+        "test": "223671367884",
+        "stage": "223671367884",
+        "live": "223671367884"
+    },
+    "edp-platform": {
+        "int": "438260429255",
+        "test": "438260429255",
+        "stage": "438260429255",
+        "live": "438260429255"
+    },
+    "edp-pdd": {
+        "int": "502497380447",
+        "test": "502497380447",
+        "stage": "502497380447",
+        "live": "502497380447"
+    }
 }
 
 COSMOS_SERVICE = ["federated-id", "scv-utility-airflow", "sar-server-blue", "activity-writer"]
