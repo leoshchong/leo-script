@@ -31,4 +31,5 @@ class Gobbc:
         self.access_key_id = credentials["AWS_ACCESS_KEY_ID"]
         self.secret_access_key = credentials["AWS_SECRET_ACCESS_KEY"]
         self.session_token = credentials["AWS_SESSION_TOKEN"]
+        return self.aws_account
 
