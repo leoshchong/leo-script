@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Restrict source branch
         run: |
-          if [[ "${{ github.base_ref }}" != "main" && "${{ github.head_ref }}" != "test" ]]; then
+          if [[ "${{ github.base_ref }}" = "main" && "${{ github.head_ref }}" != "test" ]]; then
             echo "❌ Only the test branch can merge into main."
             exit 1
           fi
