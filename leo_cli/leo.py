@@ -6,7 +6,7 @@ from leo_cli.gobbc.gobbc_cli import gobbc
 from leo_cli.cosmos.cosmos_cli import cosmos
 from leo_cli.iam.iam_cli import iam
 
-APP_VERSION = '0.0.7'
+APP_VERSION = '0.0.8'
 
 
 @click.group()

@@ -20,8 +20,8 @@ def gobbc():
 def refresh(env, project, duration):
     try:
         gobbc_api = Gobbc(env=env, project=project, duration=duration)
-        gobbc_api.refresh_wormhole_credentials()
-        click.echo(f"Successfully refreshed {env} {project} AWS credentials.")
+        account = gobbc_api.refresh_wormhole_credentials()
+        click.echo(f"Successfully refreshed AWS credentials to {env} {project} - {account}. ")
     except Exception as ex:
         click.echo(f"Failed to refresh AWS credentials. {str(ex)}")
     finally:
