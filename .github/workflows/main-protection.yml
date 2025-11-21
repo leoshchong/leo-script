@@ -1,0 +1,16 @@
+name: Protect main branch to test PR only
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restrict source branch
+        run: |
+          if [[ "${{ github.head_ref }}" != "test" ]]; then
+            echo "❌ Only the test branch can merge into main."
+            exit 1
+          fi
